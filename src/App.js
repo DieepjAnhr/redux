@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import ButtonLeft from './components/button-left';
+import TextContent from './components/text';
 
 function App() {
+  const nowStateText = useSelector(state => state.getStateText)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <br />
+        <br />
+        <div className="left">
+            <ButtonLeft />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="right">
+            {nowStateText? <TextContent />: " "}
+        </div>
     </div>
   );
 }
